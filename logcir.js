@@ -1,12 +1,7 @@
 const LGC={}
 
-LGC.DC=function(boolean){
-if(boolean==true){
+LGC.DC=function(){
 return 1;
-}
-else{
-return 0;
-}
 }
 
 //AND
@@ -84,36 +79,36 @@ LGC.tools.half_adder={}
 LGC.tools.half_adder.S=0;
 LGC.tools.half_adder.C=0;
 LGC.tools.half_adder=function(A,B){
-LGC.tools.half_adder.S=LGC.xor(A,B);
-LGC.tools.half_adder.C=LGC.and(A,B);
+	LGC.tools.half_adder.S=LGC.xor(A,B);
+	LGC.tools.half_adder.C=LGC.and(A,B);
 }
 //全加算器
 LGC.tools.full_adder={}
 LGC.tools.full_adder.S=0;
 LGC.tools.full_adder.C_out=0;
 LGC.tools.full_adder=function(A,B,C_in){
-LGC.tools.half_adder(A,B);
-LGC.tools.full_adder.half1C=LGC.tools.half_adder.C;
-LGC.tools.half_adder(LGC.tools.half_adder.S,C_in);
-LGC.tools.full_adder.S=LGC.tools.half_adder.S;
-LGC.tools.full_adder.C_out=LGC.or(LGC.tools.half_adder.C,LGC.tools.full_adder.half1C)
+	LGC.tools.half_adder(A,B);
+	LGC.tools.full_adder.half1C=LGC.tools.half_adder.C;
+	LGC.tools.half_adder(LGC.tools.half_adder.S,C_in);
+	LGC.tools.full_adder.S=LGC.tools.half_adder.S;
+	LGC.tools.full_adder.C_out=LGC.or(LGC.tools.half_adder.C,LGC.tools.full_adder.half1C)
 }
 
 LGC.tools.half_subtractor={}
 LGC.tools.half_subtractor.S=0;
 LGC.tools.half_subtractor.D=0;
 LGC.tools.half_subtractor=function(A,B){
-LGC.tools.half_subtractor.S=LGC.xor(A,B);
-LGC.tools.half_subtractor.D=LGC.and(LGC.not(A),B);
+	LGC.tools.half_subtractor.S=LGC.xor(A,B);
+	LGC.tools.half_subtractor.D=LGC.and(LGC.not(A),B);
 };
 
 LGC.tools.full_subtractor={};
 LGC.tools.full_subtractor.S=0;
 LGC.tools.full_subtractor.D_out=0;
 LGC.tools.full_subtractor=function(A,B,D_in){
-LGC.tools.half_subtractor(A,B);
-LGC.tools.full_subtractor.half1D=LGC.tools.half_subtractor.D
-LGC.tools.half_subtractor(LGC.tools.half_subtractor.S,D_in);
-LGC.tools.full_subtractor.S=LGC.tools.half_subtractor.S
-LGC.tools.full_subtractor.D_out=LGC.or(LGC.tools.half_subtractor.D,LGC.tools.full_subtractor.half1D);
+	LGC.tools.half_subtractor(A,B);
+	LGC.tools.full_subtractor.half1D=LGC.tools.half_subtractor.D
+	LGC.tools.half_subtractor(LGC.tools.half_subtractor.S,D_in);
+	LGC.tools.full_subtractor.S=LGC.tools.half_subtractor.S
+	LGC.tools.full_subtractor.D_out=LGC.or(LGC.tools.half_subtractor.D,LGC.tools.full_subtractor.half1D);
 }
