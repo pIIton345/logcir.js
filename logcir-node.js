@@ -112,5 +112,12 @@ tools.full_subtractor=function(A,B,D_in){
 }
 
 module.exports={
-    
+	DC,
+	and,
+	or,
+	not,
+	nand,
+	nor,
+	xor,
+	tools
 }
