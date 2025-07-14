@@ -1,10 +1,33 @@
 {
   "name": "logcir",
   "version": "1.0.0",
-  "main": "./dist/logcir.cjs", 
-  "exports": {
-    "import": "./dist/logcir.mjs",  
-    "require": "./dist/logcir.cjs"  
+  "description": "シンプルな論理回路シミュレーターライブラリ",
+  "keywords":[
+    "logic-circuit",
+    "javascript"
+  ],
+  "homepage": "https://github.com/pIIton345/logcir.js#readme",
+  "bugs": {
+    "url": "https://github.com/pIIton345/logcir.js/issues"
   },
-  "browser":"./dist/logcir.umd.js"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pIIton345/logcir.js.git"
+  },
+  "license": "MIT",
+  "author": "pIIton345",
+  "type": "commonjs",
+  "exports": {
+    "import": "./dist/logcir.mjs",
+    "require": "./dist/logcir.cjs"
+  },
+  "main": "./dist/logcir.cjs",
+  "browser": "./dist/logcir.umd.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "git": "^0.1.5",
+    "logcir": "github:pIIton345/logcir.js#develop"
+  }
 }
