@@ -5,5 +5,6 @@
   "exports": {
     "import": "./dist/logcir.mjs",  
     "require": "./dist/logcir.cjs"  
-  }
+  },
+  "browser":"./dist/logcir.umd.js"
 }
