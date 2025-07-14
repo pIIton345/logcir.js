@@ -1,11 +1,9 @@
-const LGC={}
-
-LGC.DC=function(){
+const DC=function(){
 return 1;
 }
 
 //AND
-LGC.and=function(A,B){
+const and=function(A,B){
 if(A==0&&B==0){
 return 0;
 }
@@ -21,7 +19,7 @@ return 1;
 }
 
 //OR
-LGC.or=function(A,B){
+const or=function(A,B){
 if(A==0&&B==0){
 return 0;
 }
@@ -37,7 +35,7 @@ return 1;
 }
 
 //NOT
-LGC.not=function(A){
+const not=function(A){
 if(A==0){
 return 1;
 }
@@ -47,17 +45,17 @@ return 0;
 }
 
 //NAND
-LGC.nand=function(A,B){
-return LGC.not(LGC.and(A,B));
+const nand=function(A,B){
+return not(and(A,B));
 }
 
 //NOR
-LGC.nor=function(A,B){
-return LGC.not(LGC.or(A,B));
+const nor=function(A,B){
+return not(or(A,B));
 }
 
 //XOR
-LGC.xor=function(A,B){
+const xor=function(A,B){
 if(A==0&&B==0){
 return 0;
 }
@@ -73,42 +71,46 @@ return 0;
 }
 
 //tools LEDやALUなど入出力装置を出せます。
-LGC.tools={}
+const tools={}
 //半加算器
-LGC.tools.half_adder={}
-LGC.tools.half_adder.S=0;
-LGC.tools.half_adder.C=0;
-LGC.tools.half_adder=function(A,B){
-	LGC.tools.half_adder.S=LGC.xor(A,B);
-	LGC.tools.half_adder.C=LGC.and(A,B);
+tools.half_adder={}
+tools.half_adder.S=0;
+tools.half_adder.C=0;
+tools.half_adder=function(A,B){
+	tools.half_adder.S=xor(A,B);
+	tools.half_adder.C=and(A,B);
 }
 //全加算器
-LGC.tools.full_adder={}
-LGC.tools.full_adder.S=0;
-LGC.tools.full_adder.C_out=0;
-LGC.tools.full_adder=function(A,B,C_in){
-	LGC.tools.half_adder(A,B);
-	LGC.tools.full_adder.half1C=LGC.tools.half_adder.C;
-	LGC.tools.half_adder(LGC.tools.half_adder.S,C_in);
-	LGC.tools.full_adder.S=LGC.tools.half_adder.S;
-	LGC.tools.full_adder.C_out=LGC.or(LGC.tools.half_adder.C,LGC.tools.full_adder.half1C)
+tools.full_adder={}
+tools.full_adder.S=0;
+tools.full_adder.C_out=0;
+tools.full_adder=function(A,B,C_in){
+	tools.half_adder(A,B);
+	tools.full_adder.half1C=tools.half_adder.C;
+	tools.half_adder(tools.half_adder.S,C_in);
+	tools.full_adder.S=tools.half_adder.S;
+	tools.full_adder.C_out=or(tools.half_adder.C,tools.full_adder.half1C)
 }
 
-LGC.tools.half_subtractor={}
-LGC.tools.half_subtractor.S=0;
-LGC.tools.half_subtractor.D=0;
-LGC.tools.half_subtractor=function(A,B){
-	LGC.tools.half_subtractor.S=LGC.xor(A,B);
-	LGC.tools.half_subtractor.D=LGC.and(LGC.not(A),B);
+tools.half_subtractor={}
+tools.half_subtractor.S=0;
+tools.half_subtractor.D=0;
+tools.half_subtractor=function(A,B){
+	tools.half_subtractor.S=xor(A,B);
+	tools.half_subtractor.D=and(not(A),B);
 };
 
-LGC.tools.full_subtractor={};
-LGC.tools.full_subtractor.S=0;
-LGC.tools.full_subtractor.D_out=0;
-LGC.tools.full_subtractor=function(A,B,D_in){
-	LGC.tools.half_subtractor(A,B);
-	LGC.tools.full_subtractor.half1D=LGC.tools.half_subtractor.D
-	LGC.tools.half_subtractor(LGC.tools.half_subtractor.S,D_in);
-	LGC.tools.full_subtractor.S=LGC.tools.half_subtractor.S
-	LGC.tools.full_subtractor.D_out=LGC.or(LGC.tools.half_subtractor.D,LGC.tools.full_subtractor.half1D);
+tools.full_subtractor={};
+tools.full_subtractor.S=0;
+tools.full_subtractor.D_out=0;
+tools.full_subtractor=function(A,B,D_in){
+	tools.half_subtractor(A,B);
+	tools.full_subtractor.half1D=tools.half_subtractor.D
+	tools.half_subtractor(tools.half_subtractor.S,D_in);
+	tools.full_subtractor.S=tools.half_subtractor.S
+	tools.full_subtractor.D_out=or(tools.half_subtractor.D,tools.full_subtractor.half1D);
+}
+
+module.exports={
+    
 }
