@@ -2,7 +2,7 @@
   "name": "logcir",
   "version": "1.0.0",
   "description": "シンプルな論理回路シミュレーターライブラリ",
-  "keywords":[
+  "keywords": [
     "logic-circuit",
     "javascript"
   ],
