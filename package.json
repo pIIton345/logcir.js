@@ -1,9 +1,9 @@
 {
   "name": "logcir",
   "version": "1.0.0",
-  "main": "./dist/logcir-node.js", 
+  "main": "./dist/logcir.cjs", 
   "exports": {
-    "import": "./dist/logcir-node.mjs",  
-    "require": "./dist/logcir-node.js"  
+    "import": "./dist/logcir.mjs",  
+    "require": "./dist/logcir.cjs"  
   }
 }
