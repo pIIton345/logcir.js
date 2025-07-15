@@ -34,7 +34,7 @@ LGC.tools.harf_adder(1,1)
 console.log(LGC.tools.half_adder.S)//=>1
 console.log(LGC.tools.half_adder.C)//=>0
 ```
-ESMでも`impot LGC from "logcir"`を使って使用することができます。
+ESMは`impot LGC from "logcir"`を使って使用することができます。
 
 ### ブラウザ(html)
 ```
@@ -50,4 +50,7 @@ console.log(LGC.tools.half_adder.S)//=>1
 console.log(LGC.tools.half_adder.C)//=>0
 </script>
 ```
-ブラウザで使用する場合はグローバル変数LGCがあります。
+ブラウザで使用する場合はグローバル変数`LGC`を使用します。
+
+## インストール方法
+後に記述
