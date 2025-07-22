@@ -51,6 +51,3 @@ console.log(LGC.tools.half_adder.C)//=>0
 </script>
 ```
 ブラウザで使用する場合はグローバル変数`LGC`を使用します。
-
-## インストール方法
-後に記述
